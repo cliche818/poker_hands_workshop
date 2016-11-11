@@ -10,6 +10,8 @@ group :development, :test do
   gem 'pry-rescue'
 
   gem 'yard'
+
+  gem 'guard-rspec'
 end
 
 gemspec

@@ -1,21 +1,11 @@
 module ToPoker
-  class OnePair
+  class OnePair < Hand
+    extend HandHelper
+
     def self.run(hand)
-      counter = {}
+      counter = frequency(hand)
 
-      hand.cards.each do |card|
-        if counter[card.rank]
-          counter[card.rank] += 1
-        else
-          counter[card.rank] = 1
-        end
-
-        if counter[card.rank] == 2
-          return true
-        end
-      end
-
-      return false
+      counter.values.max == 2 ? true : false
     end
   end
 end
