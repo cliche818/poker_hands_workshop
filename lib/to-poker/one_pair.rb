@@ -1,7 +1,6 @@
 module ToPoker
   class OnePair
     def self.run(hand)
-
       counter = {}
 
       hand.cards.each do |card|
@@ -11,7 +10,7 @@ module ToPoker
           counter[card.rank] = 1
         end
 
-        if counter[card.rank] = 2
+        if counter[card.rank] == 2
           return true
         end
       end

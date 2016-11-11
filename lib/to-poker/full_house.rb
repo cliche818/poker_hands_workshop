@@ -11,7 +11,6 @@ module ToPoker
         end
       end
 
-      p counter.values
       if counter.values == [3,2] || counter.values == [2,3]
         return true
       else
