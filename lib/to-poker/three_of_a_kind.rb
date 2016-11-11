@@ -2,7 +2,7 @@ module ToPoker
   class ThreeOfAKind
     extend HandHelper
 
-    def self.run(hand)
+    def self.is?(hand)
       counter = frequency(hand)
 
       counter.values.max == 3 ? true : false

@@ -1,7 +1,7 @@
 module ToPoker
   RSpec.describe FullHouse do
     it 'should evaluate a full house' do
-      result = FullHouse.run(Hand.new([
+      result = FullHouse.is?(Hand.new([
         Card.new(:five, :hearts),
         Card.new(:five, :diamonds),
         Card.new(:five, :spades),
@@ -12,7 +12,7 @@ module ToPoker
     end
 
     it 'should not evaluate a full house' do
-      result = FullHouse.run(Hand.new([
+      result = FullHouse.is?(Hand.new([
         Card.new(:two, :hearts),
         Card.new(:five, :diamonds),
         Card.new(:five, :spades),
