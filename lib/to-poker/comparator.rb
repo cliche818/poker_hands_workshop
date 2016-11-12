@@ -2,9 +2,11 @@ module ToPoker
   class Comparator
     def self.run(first_hand, second_hand)
       first_hand_type_score = calculate_type_score(first_hand)
+      first_hand_same_type_score = calculate_same_type_score(first_hand)
       second_hand_type_score = calculate_type_score(second_hand)
+      second_hand_same_type_score = calculate_same_type_score(second_hand)
 
-      if first_hand_type_score > second_hand_type_score
+      if first_hand_type_score > second_hand_type_score || (first_hand_type_score == second_hand_type_score && first_hand_same_type_score > second_hand_same_type_score)
         1
       else
         2
@@ -24,6 +26,12 @@ module ToPoker
         end
 
         Hand::TYPE_ORDER.index(type)
+      end
+
+      def calculate_same_type_score(hand)
+        if ThreeOfAKind.is?(hand)
+          ThreeOfAKind.same_type_score(hand)
+        end
       end
     end
   end
